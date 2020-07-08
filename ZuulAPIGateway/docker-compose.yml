@@ -1,0 +1,14 @@
+version: '3'
+services:
+  zuul-api-gateway:
+    image: 'zuul-api-gateway'
+    ports:
+      - '8888:8888'
+    environment:
+      - EUREKA_SERVER_NAME=eureka-server
+      - EUREKA_SERVER_PORT=8761
+      - PORT=8888
+    links:
+      - eureka-server
+      - service-a
+      - service-b

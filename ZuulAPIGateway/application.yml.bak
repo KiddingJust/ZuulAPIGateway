@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 8888
+  
+eureka:
+  instance:
+    instance-id: zuul-inst001
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      
+zuul:
+  routes:
+   service-a:
+     path: /serviceA/** # apigateway/serviceA 로 들어오면 service-a 호출
+   service-b:
+     path: /serviceB/** # apigateway/serviceB 로 들어오면 service-b 호출
+     serviceId: service-b
+    
